@@ -1,15 +1,15 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
-with open("README.md", 'r') as f:
-      long_description = f.read()
+with open("README.md", "r") as f:
+    long_description = f.read()
 
-setup(name='forcats',
-      version='0.0.1',
-      packages=find_packages(),
-      description='Tools for working with categorical data',
-      url='http://github.com/MangoTheCat/forcats',
-      author='Mango Solutions',
-      install_requires=[
-            'pandas',
-            'numpy'],
-      license='MIT')
+setup(
+    name="forcats",
+    version="0.1.0",
+    packages=["forcats"],
+    description="Tools for working with categorical data",
+    url="http://github.com/MangoTheCat/forcats",
+    author="Mango Solutions",
+    install_requires=["pandas", "numpy"],
+    license="MIT",
+)
