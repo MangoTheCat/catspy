@@ -1,1 +1,4 @@
-from forcats.cat_functions.cat_lump import cat_lump
+""" Tools for working with categorical data
+"""
+
+from forcats.functions import cat_lump  # noqa
