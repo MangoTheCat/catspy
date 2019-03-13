@@ -33,3 +33,14 @@ def test_cat_lump_on_categorical_column(data):
     target = ["a", "a", "a", "a", "b", "b", "b", "Other", "Other", "Other"]
     assert result.tolist() == target
 
+def test_cat_lump_with_prop(data):
+
+    result_hi = cat_lump(data.B, prop=0.3)
+
+    target = ["a", "a", "a", "a", "b", "b", "b", "Other", "Other", "Other"]
+    assert result_hi.tolist() == target
+
+    result_lo = cat_lump(data.B, prop=0.1)
+
+    target = ["a", "a", "a", "a", "b", "b", "b", "c", "c", "d"]
+    assert result_lo.tolist() == target
