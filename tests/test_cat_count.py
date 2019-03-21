@@ -26,7 +26,7 @@ def test_cat_count_on_string_column(data):
        })
    assert result.f.tolist() == target.f.tolist()
 
-def test_cat_count_on_string_column(data):
+def test_cat_count_on_string_column_sort(data):
 
     result = cat_count(data.A, sort = True)
 
