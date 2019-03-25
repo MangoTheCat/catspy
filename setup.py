@@ -10,6 +10,7 @@ setup(
     description="Tools for working with categorical data",
     url="http://github.com/MangoTheCat/forcats",
     author="Mango Solutions",
+    zip_safe=False,
     install_requires=["pandas", "numpy"],
     license="MIT",
 )
