@@ -15,25 +15,49 @@ def data():
     )
     return df
 
-
 def test_cat_count_on_string_column(data):
+    result = (cat_count(data.A, sort=False)
+        .set_index('f')
+        .sort_index()
+        .rename_axis(None)
+    )
+    
+    target = pd.DataFrame({
+        'n': {'a': 4, 'b': 3, 'c': 2, 'd': 1}
+    })
+    
+    pd.testing.assert_frame_equal(result, target)
 
-    result = cat_count(data.A)
+
+def test_cat_count_on_string_column_sort(data):
+
+    result = cat_count(data.A, sort = True)
 
     target = pd.DataFrame({
         'f': {0: 'a', 1: 'b', 2: 'c', 3: 'd'},
         'n': {0: 4, 1: 3, 2: 2, 3: 1},
         })
-    assert result == target
+    pd.testing.assert_frame_equal(result, target)
 
 
 def test_cat_count_on_categorical_column(data):
 
-    result = cat_count(df.B, prop = True)
-
+    result = cat_count(data.B, prop = True)
+    
     target = pd.DataFrame({
-        'f': {0: 'a', 1: 'b', 2: 'c', 3: 'd'},
-        'n': {0: 4, 1: 3, 2: 2, 3: 1},
-        'p': {0: 0.4, 1: 0.3, 2: 0.2, 3: 0.1}
+        'f': pd.Categorical(['a', 'b', 'c', 'd']),
+        'n': [4, 3, 2, 1],
+        'p': [0.4, 0.3, 0.2, 0.1]
         })
-    assert result == target
+    
+    pd.testing.assert_frame_equal(result, target)
+
+def test_cat_count_on_categorical_column_sort(data):
+
+    result = cat_count(data.B, sort = True)
+    
+    target = pd.DataFrame({
+        'f': pd.Categorical(['a', 'b', 'c', 'd']),
+        'n': [4, 3, 2, 1]
+        })
+    pd.testing.assert_frame_equal(result, target)
