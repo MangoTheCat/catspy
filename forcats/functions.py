@@ -60,3 +60,31 @@ def cat_count(x, sort=False, prop=False):
         df['p'] = df['n']/sum(df['n'])
 
     return df
+
+
+def cat_anon(x, prefix = ""):
+    """
+    Anonymise category levels
+
+    Parameters
+    ----------
+    x : pd.Series
+      series to be modified
+    prefix : string
+      string prefix to insert in front of the numeric labels
+	  
+    Returns
+    -------
+    y : pd.Series
+      Anonymised pandas series
+    """
+    x_array = pd.factorize(x)[0] + 1
+	
+    digits = [len(str(x)) for x in x_array]
+    digits = max(digits)
+
+    x = [str(x).zfill(digits) for x in x_array]
+    x = prefix + pd.Series(x)
+
+    return x
+	
