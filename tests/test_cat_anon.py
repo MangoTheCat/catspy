@@ -1,6 +1,6 @@
 import pandas as pd
 
-from forcats.functions import cat_anon
+from catspy.functions import cat_anon
 
 import pytest
 

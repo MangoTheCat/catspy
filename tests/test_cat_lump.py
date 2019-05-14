@@ -1,6 +1,6 @@
 import pandas as pd
 
-from forcats.functions import cat_lump
+from catspy.functions import cat_lump
 
 import pytest
 

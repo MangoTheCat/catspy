@@ -1,6 +1,6 @@
 import pandas as pd
 
-from forcats.functions import cat_count
+from catspy.functions import cat_count
 
 import pytest
 @pytest.fixture()
